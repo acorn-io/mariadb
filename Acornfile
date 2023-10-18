@@ -52,6 +52,11 @@ secrets: admin: {
 	name:        "Admin user credentials"
 	description: "Credentials for the admin user with full control over the database server"
 	type:        "basic"
+	params: {
+		usernameLength:     11
+		usernameCharacters: "a-z"
+		passwordCharacters: "A-Za-z0-9^_-"
+	}
 	data: username: "root"
 }
 
@@ -59,6 +64,11 @@ secrets: user: {
 	name:        "DB User Credentials"
 	description: "Credentials for the user with full access to the created database instance"
 	type:        "basic"
+	params: {
+		usernameLength:     11
+		usernameCharacters: "a-z"
+		passwordCharacters: "A-Za-z0-9^_-"
+	}
 	data: username: args.username
 }
 
@@ -88,8 +98,8 @@ localData: info: """
 		    DB_NAME:       "@{@{service.}db.data.dbName}"
 		    DB_ADMIN_USER: "@{@{service.}db.secrets.admin.username}"
 		    DB_ADMIN_PASS: "@{@{service.}db.secrets.admin.password}"
-			DB_USER:       "@{@{service.}db.secrets.user.username}"
-			DB_PASS:       "@{@{service.}db.secrets.user.password}"
+			  DB_USER:       "@{@{service.}db.secrets.user.username}"
+			  DB_PASS:       "@{@{service.}db.secrets.user.password}"
 		}
 	}
 	"""
