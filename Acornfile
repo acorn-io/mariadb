@@ -83,23 +83,23 @@ localData: probeExecCommand: [
 ]
 
 localData: info: """
-	## Usage
+## Usage
 
-	services: db: {
-		external: "@{acorn.name}"
-	}
+services: db: {
+	external: "@{acorn.name}"
+}
 
-	containers: app: {
-		image: "app-image"
-		consumes: ["db"]
-		env: {
-		    DB_HOST:       "@{@{service.}db.address}"
-		    DB_PORT:       "@{@{service.}db.port.3306}"
-		    DB_NAME:       "@{@{service.}db.data.dbName}"
-		    DB_ADMIN_USER: "@{@{service.}db.secrets.admin.username}"
-		    DB_ADMIN_PASS: "@{@{service.}db.secrets.admin.password}"
-			  DB_USER:       "@{@{service.}db.secrets.user.username}"
-			  DB_PASS:       "@{@{service.}db.secrets.user.password}"
-		}
+containers: app: {
+	image: "app-image"
+	consumes: ["db"]
+	env: {
+	    DB_HOST:       "@{@{service.}db.address}"
+	    DB_PORT:       "@{@{service.}db.port.3306}"
+	    DB_NAME:       "@{@{service.}db.data.dbName}"
+	    DB_ADMIN_USER: "@{@{service.}db.secrets.admin.username}"
+	    DB_ADMIN_PASS: "@{@{service.}db.secrets.admin.password}"
+		  DB_USER:       "@{@{service.}db.secrets.user.username}"
+		  DB_PASS:       "@{@{service.}db.secrets.user.password}"
 	}
-	"""
+}
+"""
