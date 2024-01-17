@@ -25,7 +25,7 @@ services: db: {
 containers: mariadb: {
 	name:        "MariaDB"
 	description: "Containerized MariaDB database server"
-	image:       "mariadb:10.11.5" // Current LTS Version
+	image:       "mariadb:10.11.6" // Current LTS Version
 	ports:       "3306/tcp"
 	env: {
 		MARIADB_ROOT_PASSWORD: "@{secrets.admin.password}"
